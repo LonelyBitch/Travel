@@ -20,11 +20,10 @@
 </script>
 
 <style lang="stylus" scoped>
-    @import "~@/assets/styles/varbles.styl"
     .header
         display: flex;
         line-height: .86rem;
-        background :$bgColor;
+        background :#25a4bb;
         color white;
     .header-left
         width: .64rem;
