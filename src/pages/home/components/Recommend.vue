@@ -2,10 +2,10 @@
     <div>
         <div class="title">热门推荐</div>
         <ul>
-            <li class="item"  v-for="item of recommendList" :key="item.id">
+            <li class="item"  v-for="item of list" :key="item.id">
                 <div class="item-img-warpper">
                     <img class="item-img"
-                         :src="item.img">
+                         :src="item.imgUrl">
                 </div>
                 <div class="item-info">
                     <p class="item-title">{{item.title}}</p>
@@ -20,31 +20,35 @@
 <script>
     export default {
         name: "HomeRecommend",
-        data(){
-            return{
-                recommendList:[{
-                    id:'001',
-                    img:'//imgs.qunarzz.com/vs_ceph_vs_tts/3cbe255c-539b-4958-b0bc-a2c2e2ba4444.jpg_r_390x260x90_5ab5ba96.jpg',
-                    title:'九寨沟黄龙',
-                    desc:'飞机往返|早中班可选|超值特卖|0 飞机往返|早中班可选|超值特卖|0 飞机往返|早中班可选|超值特卖|0'
 
-                },
-                    {
-                        id:'002',
-                        img:'//imgs.qunarzz.com/vs_ceph_vs_tts/3cbe255c-539b-4958-b0bc-a2c2e2ba4444.jpg_r_390x260x90_5ab5ba96.jpg',
-                        title:'九寨沟黄龙',
-                        desc:'飞机往返|早中班可选|超值特卖|0 飞机往返|早中班可选|超值特卖|0 飞机往返|早中班可选|超值特卖|0'
-
-                    },{
-                        id:'003',
-                        img:'//imgs.qunarzz.com/vs_ceph_vs_tts/3cbe255c-539b-4958-b0bc-a2c2e2ba4444.jpg_r_390x260x90_5ab5ba96.jpg',
-                        title:'九寨沟黄龙',
-                        desc:'飞机往返|早中班可选|超值特卖|0 飞机往返|早中班可选|超值特卖|0 飞机往返|早中班可选|超值特卖|0'
-
-                    }
-                ]
-            }
+        props:{
+            list:Array,
         }
+        // data(){
+        //     return{
+        //         recommendList:[{
+        //             id:'001',
+        //             img:'//imgs.qunarzz.com/vs_ceph_vs_tts/3cbe255c-539b-4958-b0bc-a2c2e2ba4444.jpg_r_390x260x90_5ab5ba96.jpg',
+        //             title:'九寨沟黄龙',
+        //             desc:'飞机往返|早中班可选|超值特卖|0 飞机往返|早中班可选|超值特卖|0 飞机往返|早中班可选|超值特卖|0'
+        //
+        //         },
+        //             {
+        //                 id:'002',
+        //                 img:'//imgs.qunarzz.com/vs_ceph_vs_tts/3cbe255c-539b-4958-b0bc-a2c2e2ba4444.jpg_r_390x260x90_5ab5ba96.jpg',
+        //                 title:'九寨沟黄龙',
+        //                 desc:'飞机往返|早中班可选|超值特卖|0 飞机往返|早中班可选|超值特卖|0 飞机往返|早中班可选|超值特卖|0'
+        //
+        //             },{
+        //                 id:'003',
+        //                 img:'//imgs.qunarzz.com/vs_ceph_vs_tts/3cbe255c-539b-4958-b0bc-a2c2e2ba4444.jpg_r_390x260x90_5ab5ba96.jpg',
+        //                 title:'九寨沟黄龙',
+        //                 desc:'飞机往返|早中班可选|超值特卖|0 飞机往返|早中班可选|超值特卖|0 飞机往返|早中班可选|超值特卖|0'
+        //
+        //             }
+        //         ]
+        //     }
+        // }
     }
 </script>
 

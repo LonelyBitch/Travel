@@ -7,7 +7,7 @@
             <span class="iconfont">&#xe627;</span>请输入城市/地点/酒店
         </div>
         <div class="header-right">
-            城市
+            {{city}}
             <span class="iconfont arrow-icon">&#xe681;</span>
         </div>
     </div>
@@ -15,7 +15,10 @@
 
 <script>
     export default {
-        name: "HomeHeader"
+        name: "HomeHeader",
+        props: {
+            city:String
+        }
     }
 </script>
 
