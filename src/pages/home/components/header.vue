@@ -6,10 +6,12 @@
         <div class="header-input">
             <span class="iconfont">&#xe627;</span>请输入城市/地点/酒店
         </div>
-        <div class="header-right">
-            {{city}}
+        <router-link to="/city">
+            <div class="header-right">
+            北京
             <span class="iconfont arrow-icon">&#xe681;</span>
-        </div>
+            </div>
+        </router-link>
     </div>
 </template>
 
@@ -47,6 +49,7 @@
         width: 1.24rem;
         float: right;
         text-align:center;
+        color #666
         .arrow-icon
            margin-left -.05rem
            font-size .3rem

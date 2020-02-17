@@ -29,7 +29,7 @@
 
         data() {
             return {
-                city: '',
+                city: '北京',
                 swiperList: [],
                 iconList: [],
                 recommendList: [],
