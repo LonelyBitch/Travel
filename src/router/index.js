@@ -4,6 +4,10 @@ import Home from "@/pages/home/Home";
 import City from "../pages/city/City";
 
 Vue.use(Router)
+const routerPush = Router.prototype.push
+Router.prototype.push = function push(location) {
+    return routerPush.call(this, location).catch(error=> error)
+}
 
 export default new Router({
     routes:[

@@ -5,35 +5,27 @@
                 <div class="title border-topbottom">当前城市</div>
                 <div class="button-list">
                     <div class="button-wrapper">
-                        <div class="button">北京</div>
+                        <div class="button"  >{{this.city}}</div>
                     </div>
-                    <div class="button-wrapper">
-                        <div class="button">北京</div>
-                    </div>
-                    <div class="button-wrapper">
-                        <div class="button">北京</div>
-                    </div>
-                    <div class="button-wrapper">
-                        <div class="button">北京</div>
-                    </div>
-                    <div class="button-wrapper">
-                        <div class="button">北京</div>
-                    </div>
+
                 </div>
             </div>
             <div class="area">
                 <div class="title border-topbottom">热门城市</div>
-                <div class="button-list" >
-                    <div class="button-wrapper" v-for="item of hotCities" :key="item.id">
-                        <div class="button">{{item.name}}</div>
+                <div class="button-list">
+                    <div class="button-wrapper"
+                         v-for="item of hotCities"
+                         :key="item.id"
+                         @click="handleCityClick(item.name)">
+                        <div class="button"  @click="handleCityClick">{{item.name}}</div>
                     </div>
 
                 </div>
             </div>
             <div class="area" v-for="(items,key) of cities" :key="key" :ref="key">
                 <div class="title border-topbottom">{{key}}</div>
-                <div class="itemList" v-for="item of items" :key="item.id"  >
-                    <div class="item border-bottom">{{item.name}}</div>
+                <div class="itemList" v-for="item of items" :key="item.id">
+                    <div class="item border-bottom" @click="handleCityClick(item.name )">{{item.name}}</div>
                 </div>
             </div>
         </div>
@@ -42,20 +34,30 @@
 
 <script>
     import BScroll from 'better-scroll'
-
+    import {mapState,mapMutations} from 'vuex'
     export default {
         name: "List",
-        props:{
-            hotCities:Array,
-            cities:Object,
-            letter:String,
+        props: {
+            hotCities: Array,
+            cities: Object,
+            letter: String,
+        },
+        computed:{
+            ...mapState(['city'])
+        },
+        methods: {
+            handleCityClick(city){
+                this.change(city)
+                this.$router.push('/')
+          },
+            ...mapMutations(['change'])
         },
         mounted() {
-             this.scroll = new BScroll(this.$refs.wrapper)
+            this.scroll = new BScroll(this.$refs.wrapper, { mouseWheel: true, click: true, tap: true })
         },
-        watch:{
-            letter(){
-                if (this.letter){
+        watch: {
+            letter() {
+                if (this.letter) {
                     const element = this.$refs[this.letter][0]
                     this.scroll.scrollToElement(element)
                 }

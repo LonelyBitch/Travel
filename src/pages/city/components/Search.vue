@@ -3,10 +3,10 @@
         <input v-model="keyword" class="search-input" type="text" placeholder="输入城市">
         <div class="search-content" ref="search"  v-show="keyword">
             <ul >
-                <li v-for="item of list" :key="item.id" class="search-item">
+                <li v-for="item of list" :key="item.id" class="search-item" @click="handleCityClick(item.name)" >
                     {{item.name}}
                 </li>
-                <li v-show="!list.length" class="search-item">没有内容匹配</li>
+                <li v-show="!list.length" class="search-item" >没有内容匹配</li>
             </ul>
         </div>
     </div>
@@ -14,6 +14,7 @@
 
 <script>
     import BScroll from 'better-scroll'
+    import {mapMutations} from "vuex";
     export default {
         name: "Search",
         data() {
@@ -25,6 +26,13 @@
         },
         props: {
             cities: Object,
+        },
+        methods: {
+            handleCityClick(city){
+                this.change(city)
+                this.$router.push('/')
+            },
+            ...mapMutations(['change'])
         },
         watch: {
             keyword() {
@@ -50,7 +58,7 @@
             }
         },
         mounted() {
-            this.scroll = new BScroll(this.$refs.search)
+            this.scroll = new BScroll(this.$refs.search,{ mouseWheel: true, click: true, tap: true })
         }
     }
 </script>
